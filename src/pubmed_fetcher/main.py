@@ -4,8 +4,7 @@ from Bio import Entrez
 
 Entrez.email = "mohdahmeduddinaaa@gmail.com"
 
-PHARMA_KEYWORDS = ["pharma", "biotech", "laboratories", "therapeutics", "biosciences",
-                   "inc", "corp", "llc", "ltd", "genomics", "biosystems", "biopharma"]
+PHARMA_KEYWORDS = ["biotech", "therapeutics", "biosciences", "corp", "laboratories", "llc", "ltd","inc","genomics", "biosystems", "pharma", "biopharma"]
 
 def fetch_pubmed_papers(query, max_results=50, debug=False):
     if debug:
