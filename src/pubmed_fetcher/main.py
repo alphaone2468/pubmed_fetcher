@@ -4,7 +4,7 @@ from Bio import Entrez
 
 Entrez.email = "mohdahmeduddinaaa@gmail.com"
 
-PHARMA_KEYWORDS = ["biotech", "therapeutics", "biosciences", "corp", "laboratories", "llc", "ltd","inc","genomics", "biosystems", "pharma", "biopharma"]
+COMPANY_KEYWORDS = ["biotech", "therapeutics", "biosciences", "corp", "laboratories", "llc", "ltd","inc","genomics", "biosystems", "pharma", "biopharma"]
 
 def fetch_pubmed_papers(query, max_results=50, debug=False):
     if debug:
@@ -38,7 +38,7 @@ def fetch_pubmed_papers(query, max_results=50, debug=False):
             if "AffiliationInfo" in author:
                 for aff in author["AffiliationInfo"]:
                     affiliation = aff.get("Affiliation", "")
-                    if any(re.search(k, affiliation, re.IGNORECASE) for k in PHARMA_KEYWORDS):
+                    if any(re.search(k, affiliation, re.IGNORECASE) for k in COMPANY_KEYWORDS):
                         company_affiliations.append(affiliation)
                         name = f"{author.get('ForeName', '')} {author.get('LastName', '')}".strip()
                         non_academic_authors.append(name)
